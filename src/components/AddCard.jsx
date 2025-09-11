@@ -12,7 +12,7 @@ const AddCard = ({ onClick }) => {
       justifyContent="center"
       border="2px dashed"
       borderColor="gray.300"
-      bg="white"
+      bg="blue.50"
       _hover={{ bg: "gray.50" }}
       cursor="pointer"
       onClick={onClick}

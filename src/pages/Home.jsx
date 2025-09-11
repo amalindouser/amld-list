@@ -51,6 +51,11 @@ const Home = () => {
     toast({ title: "Tanggal dihapus", status: "info", duration: 1200 });
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("isAuthenticated");
+    navigate("/login");
+  }
+
   return (
     <Box minH="auto" bg="white" w="auto" p={4} pl={20}>
       <Heading mb={6} textAlign="center" color="blue.600" fontSize={{ base: "xl", md: "2xl" }}>

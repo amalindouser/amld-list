@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const DateCard = ({ id, date, onDelete }) =>{
   return (
-    <Card p={4} w="100%" minH="180px" bg="white" boxShadow="sm" _hover={{ boxShadow: "md" }}>
+    <Card p={4} w="100%" minH="180px" bg="#FFF0CE" boxShadow="sm" _hover={{ boxShadow: "md" }}>
       <Heading size="md" color="blue.700" mb={2} noOfLines={1}>
         {date}
       </Heading>

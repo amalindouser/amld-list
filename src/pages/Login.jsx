@@ -1,45 +1,95 @@
 import { useState } from "react";
-import { Box, Input, Button, Heading, VStack, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  VStack,
+  Heading,
+  Input,
+  Button,
+  Checkbox,
+  Text,
+  Image,
+} from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
-const Login = ({ onLogin }) => {
+function Login({ setAuth }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
-  const handleSubmit = () => {
-    // Contoh validasi sederhana (hardcode)
-    if (username === "admin" && password === "123456") {
-      setError("");
-      onLogin(username); // Kirim username ke parent kalau sukses login
+  const handleLogin = () => {
+    if (username === "amld" && password === "amld2312") {
+      localStorage.setItem("isAuthenticated", "true");
+      setAuth(true);
+      navigate("/home");
     } else {
-      setError("Username atau password salah!");
+      alert("Username atau password salah!");
     }
   };
 
   return (
-    <Box maxW="400px" mx="auto" mt="20" p={6} boxShadow="md" borderRadius="md">
-      <Heading mb={6} textAlign="center">
-        Login
-      </Heading>
-      <VStack spacing={4}>
-        <Input
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <Input
-          placeholder="Password"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        {error && <Text color="red.500">{error}</Text>}
-        <Button colorScheme="blue" width="full" onClick={handleSubmit}>
-          Login
-        </Button>
-      </VStack>
-    </Box>
+    <Flex 
+    minH="100vh" 
+    align="center" 
+    justify="center" 
+    bg="white"
+    w="100%"
+    maxW="1700px" 
+    p={6}>
+      <Flex
+        bg="white"
+        boxShadow="lg"
+        borderRadius="lg"
+        overflow="hidden"
+        w="100%"
+        maxW="1700px" 
+        direction={{ base: "column", md: "row" }}
+      >
+        {/* Kolom Gambar */}
+        <Box flex="1" display="flex">
+          <Image
+            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+            alt="Login Illustration"
+            objectFit="cover"
+            w="100%"
+            h={{ base: "200px", md: "100%" }}
+          />
+        </Box>
+
+        {/* Kolom Form */}
+        <Flex flex="1" align="center" justify="center" p={8}>
+          <VStack spacing={4} w="100%" maxW="400px">
+            <Heading size="lg" textAlign="center">
+              Login
+            </Heading>
+
+            <Input
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <Input
+              placeholder="Password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+
+            <Flex justify="space-between" align="center" w="100%" fontSize="sm">
+              <Checkbox>Remember me</Checkbox>
+              <Text color="blue.500" cursor="pointer">
+                Forgot password?
+              </Text>
+            </Flex>
+
+            <Button colorScheme="blue" w="100%" onClick={handleLogin}>
+              Sign in
+            </Button>
+          </VStack>
+        </Flex>
+      </Flex>
+    </Flex>
   );
-};
+}
 
 export default Login;

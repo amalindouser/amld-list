@@ -5,7 +5,7 @@ const TodoItem = ({ text, completed = false, onToggle, onDelete, id }) => {
   return (
     <Box
       p={3}
-      bg={completed ? "green.100" : "blue"}
+      bg={"#FFF0CE"}
       borderRadius="md"
       boxShadow="base"
       _hover={{ bg: completed ? "green.200" : "gray.50" }}
