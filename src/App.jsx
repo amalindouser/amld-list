@@ -1,7 +1,7 @@
 import { ChakraProvider, Box, Flex } from "@chakra-ui/react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { useState } from "react";
-import Sidebar from "./components/Sidebar";
+import Sidebar from "./components/SideBar";
 import Home from "./pages/Home";
 import PageDetail from "./pages/DetailPage";
 import Login from "./pages/Login";
