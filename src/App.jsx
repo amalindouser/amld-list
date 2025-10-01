@@ -5,6 +5,7 @@ import Sidebar from "./components/SideBar";
 import Home from "./pages/Home";
 import PageDetail from "./pages/DetailPage";
 import Login from "./pages/Login";
+import Footer from "./components/Footer";
 
 const App = () => {
   const [isAuthenticated, setAuth] = useState(
